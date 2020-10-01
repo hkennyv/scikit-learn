@@ -179,8 +179,7 @@ class GaussianProcessRegressor(MultiOutputMixin,
         self : returns an instance of self.
         """
         if self.kernel is None:  # Use an RBF kernel as default
-            self.kernel_ = C(1.0, constant_value_bounds="fixed") \
-                * RBF(1.0, length_scale_bounds="fixed")
+            self.kernel_ = C(1.0) * RBF(1.0)
         else:
             self.kernel_ = clone(self.kernel)
 
